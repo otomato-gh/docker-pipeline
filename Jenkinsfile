@@ -3,13 +3,17 @@ pipeline {
   stages{
   
     stage("Build") {
-      script {  
-        image = docker.build("myimage")
+      steps{ 
+        script {  
+          image = docker.build("myimage")
+        }
       }
     }
     stage("Test") {
-      script {
-        image.run()
+      steps {
+        script {
+          image.run()
+        }
       }
     }
   }
